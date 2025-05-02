@@ -40,9 +40,18 @@ router.get('/', async (req, res)=> {
 
   // ATUALIZAR SOMENTE O REGISTRO COM ID
 
-  router.put('/:id', (req, res) => {
-    const id = req.params.id
-    res.json({mensagem:  `ATUALIZAR O REGISTRO COM ID ${id}`})
+  router.put('/:id', async (req, res) => {
+    try{
+      const id = req.params.id
+      const novo_filme = req.body
+    
+      const filme = await Filme.findByIdAndUpdate(id, novo_filme);
+
+      res.json({err: false, filme})
+
+    }catch {
+     res.json({error: true, message: err.message})  
+    }
   })
 
   // DELETAR SOEMENTE REGISTRO COM ID
