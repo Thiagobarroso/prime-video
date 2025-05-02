@@ -5,14 +5,39 @@ const Filme = mongoose.model('Filme', {
         type: String,
         required: true,
     },
-    atores: {
+    tipo: {
         type: [Object],
         required: true,
     }, 
-    ano: {
-        type: Number,
+    capa: {
+        type: String,
+        required: true,
+    }, 
+    logo: {
+        type: String,
+        required: true,
+    },
+    thumb: {
+        type: String,
+        required: true,
+    },
+    descricao: {
+        type: String,
+        required: true,
+    }, 
+    genero: {
+        type: Array,
+        required: true,
+    },
+    elenco: {
+        type: Array,
+        required: true,
+    },
+    cenas_momentos: {
+        type: String,
         required: true,
     }
+
 });
 
 module.exports = Filme;
